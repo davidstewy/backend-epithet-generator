@@ -10,3 +10,6 @@ def configure_app():
     app = flask.Flask(__name__)
 
     return app
+
+
+app = configure_app()
