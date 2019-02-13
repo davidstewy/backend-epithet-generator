@@ -21,7 +21,7 @@ def test_from_file():
 
 
 def test_create_insult():
-    assert len(EpithetGenerator.create_insult(json_path).split()) == 3
+    assert len(EpithetGenerator.create_insult(json_path).split()) == 4
 
 
 def test_all_vocab():
