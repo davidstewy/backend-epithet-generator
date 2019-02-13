@@ -55,12 +55,28 @@ class EpithetGenerator:
         """Pulls one random word from each Column/Key and formats
         them into a phrase/string"""
         my_dict = Vocabulary.from_file(path, fields=False)
-        my_phrase = '{} {} {}'.format(random.choice(my_dict["Column 1"]),
-                                      random.choice(my_dict["Column 2"]),
-                                      random.choice(my_dict["Column 3"]))
+        my_phrase = 'Thou, {}, {}, {}'.format(
+            random.choice(my_dict["Column 1"]),
+            random.choice(my_dict["Column 2"]),
+            random.choice(my_dict["Column 3"]))
         return my_phrase
 
     def all_vocab(path):
-        """Returns json data from path"""
+        """Returns all json data from path"""
         my_dict = Vocabulary.from_file(path, fields=False)
         return my_dict
+
+    def nemesis_rant(path):
+        """Returns a random amount of epithets"""
+        my_dict = EpithetGenerator.all_vocab(path)
+        max_epithets = len(my_dict['Column 1'])
+        phrase_list = []
+        random_epithets_count = random.randint(1, max_epithets)
+        print(random_epithets_count)
+        for i in range(random_epithets_count):
+            my_phrase = 'Thou, {}, {}, {}'.format(
+                random.choice(my_dict["Column 1"]),
+                random.choice(my_dict["Column 2"]),
+                random.choice(my_dict["Column 3"]))
+            phrase_list.append(my_phrase)
+        return phrase_list
